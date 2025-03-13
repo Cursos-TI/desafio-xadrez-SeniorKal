@@ -77,7 +77,7 @@ void movimentar_rainha() {
         printf("Movimento inválido!!\n");
         return;
     }
-
+    
     // Pergunta quantas vezes a rainha deve se mover.
     printf("movimentar Rainha quantas vezes? (maximo 8 casas) \n");
     scanf("%d", &vezes);
@@ -94,6 +94,25 @@ void movimentar_rainha() {
     }
 }
 
+void movimentar_cavalo(){
+    char movimento [15];
+    char movimento2 [15];
+    int j=0;
+    printf("movimentar cavalo para cima ou para baixo?\n ");
+    scanf("%s", movimento);
+
+    printf("movimentar cavalo para direita ou esquerda?\n ");
+    scanf("%s", movimento2);
+
+    do{
+        for(int i= 0;i<2;i++){
+            printf("Cavalo se movimentou para %s\n", movimento);
+        }
+        printf("Cavalo se movimentou para %s\n", movimento2);
+    } while (j>1);
+
+}
+
 // Função principal do programa.
 int main() {
     int escolha; // Variável para armazenar a escolha do jogador.
@@ -107,7 +126,8 @@ int main() {
         printf("\n[1] Movimentar torre\n");
         printf("[2] Movimentar bispo\n");
         printf("[3] Movimentar rainha\n");
-        printf("[4] sair do jogo\n");
+        printf("[4] Movimentar cavalo\n");
+        printf("[5] sair do jogo\n");
         scanf("%d", &escolha);
 
         // Executa a opção escolhida usando `switch`.
@@ -122,13 +142,16 @@ int main() {
                 movimentar_rainha(); // Chama a função para movimentar a rainha.
                 break;
             case 4:
+                movimentar_cavalo();
+                break;
+            case 5:
                 printf("Adeus D:\n"); // Mensagem de saída.
                 break;
             default:
                 printf("Opção inválida\n"); // Mensagem para opções fora do menu.
                 break;
         }
-    } while (escolha != 4); // Repete o menu até que a opção 4 (sair) seja selecionada.
+    } while (escolha != 5); // Repete o menu até que a opção 5 (sair) seja selecionada.
 
     return 0; // Finaliza o programa.
 }
